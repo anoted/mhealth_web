@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Repositories | mHealth Security</title>
+  <meta name="description" content="Open firmware, datasets, experiment code, and reproducible research from the mHealth Security project.">
+  <meta name="theme-color" content="#112e51">
+  <meta property="og:title" content="Repositories | mHealth Security">
+  <meta property="og:description" content="Five open repositories for Wi-Fi measurement, sensing, and physical-layer security.">
+  <link rel="icon" href="assets/favicon.svg?v=20260722" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css?v=20260722">
+  <script defer src="assets/site.js?v=20260722"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container reveal">
+        <div class="breadcrumbs"><a href="index.html?v=20260722">Home</a><span>/</span><span>Repositories</span></div>
+        <p class="eyebrow">Open and reproducible</p>
+        <h1>Research repositories</h1>
+        <p class="lead">Firmware, raw measurements, analysis pipelines, model comparisons, and paper artifacts designed to make the work inspectable and reusable.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container repo-list">
+        <article class="repo-card reveal">
+          <div class="repo-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 8h16v16H8zM4 12h4m16 0h4M4 20h4m16 0h4M12 4v4m8-4v4m-8 16v4m8-4v4"/></svg></div>
+          <div>
+            <h2>ESP32-C6-WiFi6-Capture</h2>
+            <p>ESP-IDF firmware for controlled Wi-Fi 6 experiments. It pairs an adjustable 802.11ax access point with a high-throughput promiscuous sniffer, using queue-backed frame handling and fast serial output for low-cost packet capture and timing research.</p>
+            <div class="tag-row"><span class="tag">ESP32-C6</span><span class="tag">802.11ax</span><span class="tag">Firmware</span><span class="tag">Packet capture</span></div>
+          </div>
+          <div class="repo-action"><a class="button secondary" href="https://github.com/anoted/ESP32-C6-WiFi6-Capture" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25V12m6 13V7m5 18V15m5 10V10m6 15V4"/></svg></div>
+          <div>
+            <h2>WiFi_Action_Data</h2>
+            <p>A labeled RSSI and CSI dataset for Wi-Fi-based human action recognition. Measurements come from a two-device ESP32-C6 setup at 40 Hz and 80 Hz, with merged data and labels supporting windowed feature selection and LSTM, CNN, or Transformer evaluation.</p>
+            <div class="tag-row"><span class="tag">Dataset</span><span class="tag">CSI</span><span class="tag">RSSI</span><span class="tag">Action recognition</span></div>
+          </div>
+          <div class="repo-action"><a class="button secondary" href="https://github.com/anoted/WiFi_Action_Data" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 10v7l5 3M5 5l4 4m18-4-4 4"/></svg></div>
+          <div>
+            <h2>WiFi_Delay_Experiment_Firmwares</h2>
+            <p>A family of ESP-IDF projects for measuring beacon reply delay and round-trip behavior between Alice and Bob. Baseline, variable-delay, and automated sweeps can be run with fixed or randomized interference to study delay-oriented attacks and RF conditions.</p>
+            <div class="tag-row"><span class="tag">Delay experiments</span><span class="tag">Beacon timing</span><span class="tag">RF interference</span><span class="tag">ESP-IDF</span></div>
+          </div>
+          <div class="repo-action"><a class="button secondary" href="https://github.com/anoted/WiFi_Delay_Experiment_Firmwares" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 24c7-7 17-7 24 0M8 19c5-5 11-5 16 0m-11-5c2-2 4-2 6 0"/><circle cx="16" cy="25" r="1.5"/></svg></div>
+          <div>
+            <h2>CSI-Evesdropper-Awareness</h2>
+            <p>The complete CSI key-generation research pipeline: raw Alice, Bob, and Eve captures; parsing and alignment; feature extraction; DCT selection; quantization; reconciliation; privacy amplification; and matched Eve-aware versus Eve-unaware evaluations.</p>
+            <div class="tag-row"><span class="tag">Physical-layer security</span><span class="tag">Eve-aware</span><span class="tag">DCT</span><span class="tag">Python</span></div>
+          </div>
+          <div class="repo-action"><a class="button secondary" href="https://github.com/anoted/CSI-Evesdropper-Awareness" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 22c4-12 8 5 12-7s6 5 8-5M5 27h22M5 5v22"/></svg></div>
+          <div>
+            <h2>RSSI_Keygen_CSP_IJS</h2>
+            <p>Reproducible Python implementation for the ICC 2026 CSP-IJS paper. It runs the semi-synchronized RSSI and cubic spline projection pipeline, evaluates comparison baselines, and exports separate Markdown, JSON, and CSV reports.</p>
+            <div class="tag-row"><span class="tag">CSP-IJS</span><span class="tag">RSSI</span><span class="tag">Key randomness</span><span class="tag">Reproducible evaluation</span></div>
+          </div>
+          <div class="repo-action"><a class="button secondary" href="https://github.com/anoted/RSSI_Keygen_CSP_IJS" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+</body>
+</html>
