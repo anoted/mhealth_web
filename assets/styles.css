@@ -60,7 +60,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  cursor: url("cursor-default.svg?v=20260722") 3 2, auto;
+  cursor: url("cursor-default.svg?v=20260723") 3 2, auto;
   color: var(--ink);
   background: var(--paper);
   font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
@@ -71,7 +71,7 @@ body {
 a,
 button,
 summary {
-  cursor: url("cursor-pointer.svg?v=20260722") 13 2, pointer;
+  cursor: url("cursor-pointer.svg?v=20260723") 13 2, pointer;
 }
 main { flex: 1 0 auto; }
 #site-footer { flex-shrink: 0; }

@@ -1,4 +1,4 @@
-const SITE_VERSION = "20260722";
+const SITE_VERSION = "20260723";
 
 const NAV_ITEMS = [
   ["Home", "index.html"],
