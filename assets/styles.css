@@ -713,7 +713,7 @@ p { margin: 0 0 1em; }
   .menu-toggle { grid-column: 2; }
   .hero { padding: 26px 0 22px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .hero::before { background: rgba(255, 255, 255, .9); }
+  .hero::before { background: rgba(0, 62, 143, .9); }
   .hero .button-row { flex-direction: column; align-items: stretch; }
   .hero .button { width: 100%; }
   .award-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 14px; }
