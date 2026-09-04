@@ -42,22 +42,14 @@
 * { box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
-  scrollbar-gutter: stable;
-  scrollbar-color: var(--accent) var(--navy);
-  scrollbar-width: auto;
-  overflow-y: scroll;
+  width: 100%;
 }
-::-webkit-scrollbar { width: 12px; }
-::-webkit-scrollbar-track { background: var(--navy); }
-::-webkit-scrollbar-thumb {
-  border: 2px solid var(--navy);
-  border-radius: 0;
-  background: var(--accent);
-}
-::-webkit-scrollbar-thumb:hover { background: #e6a800; }
 body {
   margin: 0;
+  width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   cursor: url("cursor-default.svg?v=20260723") 3 2, auto;
@@ -114,7 +106,7 @@ button, input { font: inherit; }
 .nav-wrap {
   width: min(calc(100% - 40px), var(--max));
   height: 60px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -355,6 +347,9 @@ p { margin: 0 0 1em; }
 .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .card-grid.three { grid-template-columns: repeat(3, 1fr); }
 .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: relative;
   overflow: hidden;
   padding: 14px;
@@ -506,8 +501,10 @@ p { margin: 0 0 1em; }
 .repo-card {
   display: grid;
   grid-template-columns: 46px minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
   gap: 10px 12px;
   align-items: start;
+  height: 100%;
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -538,22 +535,25 @@ p { margin: 0 0 1em; }
 
 .people-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .person-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 0;
   background: white;
   box-shadow: var(--shadow-soft);
 }
-.person-photo { position: relative; height: 265px; background: var(--ice); overflow: hidden; }
+.person-photo { position: relative; height: 320px; background: var(--ice); overflow: hidden; }
 .person-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .5s ease; }
 .person-card:hover .person-photo img { transform: scale(1.025); }
 .person-card:first-child .person-photo img { object-position: 62% 34%; }
-.person-body { padding: 14px; }
+.person-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 14px; }
 .person-role { color: var(--teal); font-size: 12px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
 .person-body h2 { margin: 8px 0 12px; font-size: 31px; }
 .person-body p { color: var(--muted); }
 .affiliation { padding-top: 18px; border-top: 1px solid var(--line); color: #40525f !important; }
-.person-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 20px; }
+.person-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: auto; padding-top: 18px; }
 .person-links a { color: var(--teal); font-size: 14px; font-weight: 500; text-decoration: none; }
 .photo-credit { margin-top: 14px; color: #87949d; font-size: 12px; }
 .photo-credit a { color: inherit; }
@@ -686,8 +686,13 @@ p { margin: 0 0 1em; }
   .menu-toggle { display: block; grid-column: 2; justify-self: end; }
   .primary-nav {
     position: fixed;
-    inset: 60px 0 auto 0;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
+    overflow-y: auto;
     display: none;
     flex-direction: column;
     justify-content: flex-start;
@@ -718,7 +723,7 @@ p { margin: 0 0 1em; }
   .hero .button { width: 100%; }
   .award-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 14px; }
   .award-facts span { padding: 0; border-left: 0; }
-  .signal-stage { min-height: auto; margin-top: 8px; }
+  .signal-stage { display: none; min-height: 0; margin-top: 0; }
   .section, .section-tight { padding: 24px 0; }
   .section-heading { display: block; }
   .section-heading p { margin-top: 13px; }
@@ -729,7 +734,7 @@ p { margin: 0 0 1em; }
   .page-hero { padding: 24px 0 20px; }
   .publication { grid-template-columns: 1fr; gap: 8px; }
   .publication .pub-status { grid-column: 1; justify-self: start; }
-  .person-photo { height: 290px; }
+  .person-photo { height: 280px; }
   .book-intro, .event-hero-card { grid-template-columns: 1fr; }
   .timeline { grid-template-columns: 1fr; gap: 0; }
   .milestone { padding: 12px 0 24px 28px; border-top: 0; border-left: 2px solid #cfe0e2; }
@@ -743,6 +748,8 @@ p { margin: 0 0 1em; }
 @media (max-width: 430px) {
   .brand span:last-child { max-width: 112px; white-space: normal; line-height: 1.05; }
   .button { width: 100%; }
-  .event-copy, .event-panel { padding: 28px; }
-  .publication { padding: 20px; }
+  .event-copy, .event-panel { padding: 18px; }
+  .publication { padding: 13px 0; }
+  .chapter-content { padding: 0 14px 16px 20px; }
+  .person-photo { height: 240px; }
 }
