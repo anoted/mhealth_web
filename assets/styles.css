@@ -550,12 +550,14 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 920px) {
   .menu-toggle { display: block; }
   .primary-nav {
-    position: fixed;
-    top: 62px;
+    /* Anchored to the sticky header: its backdrop-filter makes it the containing
+       block, so position: fixed would be clipped to the header's 62px height. */
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
-    height: auto;
+    height: calc(100vh - 62px);
+    height: calc(100dvh - 62px);
     overflow-y: auto;
     display: none;
     flex-direction: column;
