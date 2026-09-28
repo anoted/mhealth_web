@@ -1,4 +1,4 @@
-const SITE_VERSION = "20260723";
+const SITE_VERSION = "20260928";
 
 const NAV_ITEMS = [
   ["Home", "index.html"],
@@ -19,9 +19,12 @@ if (header) {
     <div class="nav-wrap">
       <a class="brand" href="${withVersion("index.html")}" aria-label="mHealth Security home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 44 44"><rect width="44" height="44"></rect><path d="M7 23h7l3-7 6 16 4-11 3 5h7"></path></svg>
+          <svg viewBox="0 0 44 44"><path d="M22 3 38 9V21c0 10.2-6.7 17.6-16 20.6C12.7 38.6 6 31.2 6 21V9Z" fill="#14305a"/><path d="M11 23h6.2l2.7-6.8 4.4 12.6 2.9-8.4 2 2.6H35" fill="none" stroke="#f0b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
-        <span>mHealth <b>Security</b></span>
+        <span class="brand-text">
+          <span class="brand-name">mHealth Security</span>
+          <span class="brand-sub">Yeshiva University</span>
+        </span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
         <span></span><span></span><span></span><span class="sr-only">Toggle navigation</span>
@@ -63,24 +66,7 @@ if (footer) {
         <p>Research in wireless systems, physical-layer security, and connected health.</p>
       </div>
       <div class="footer-meta">
-        <span>NSF Award #2428595</span>
         <span>Site version ${SITE_VERSION}</span>
       </div>
     </div>`;
 }
-
-const revealObserver = "IntersectionObserver" in window
-  ? new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 })
-  : null;
-
-document.querySelectorAll(".reveal").forEach((element) => {
-  if (revealObserver) revealObserver.observe(element);
-  else element.classList.add("visible");
-});
