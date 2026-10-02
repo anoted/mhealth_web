@@ -10,14 +10,14 @@ const NAV_ITEMS = [
   ["Conference", "conference.html"]
 ];
 
-const withVersion = (path) => `${path}?v=${SITE_VERSION}`;
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
 const header = document.querySelector("#site-header");
-if (header) {
+// The nav is written into each page's HTML so crawlers see the links; only build it if missing.
+if (header && !header.querySelector(".nav-wrap")) {
   header.innerHTML = `
     <div class="nav-wrap">
-      <a class="brand" href="${withVersion("index.html")}" aria-label="mHealth Security home">
+      <a class="brand" href="index.html" aria-label="mHealth Security home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 44 44"><path d="M22 3 38 9V21c0 10.2-6.7 17.6-16 20.6C12.7 38.6 6 31.2 6 21V9Z" fill="#14305a"/><path d="M11 23h6.2l2.7-6.8 4.4 12.6 2.9-8.4 2 2.6H35" fill="none" stroke="#f0b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
@@ -31,11 +31,13 @@ if (header) {
       </button>
       <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
         ${NAV_ITEMS.map(([label, href]) => `
-          <a href="${withVersion(href)}" ${currentPage === href ? 'class="active" aria-current="page"' : ""}>${label}</a>
+          <a href="${href}" ${currentPage === href ? 'class="active" aria-current="page"' : ""}>${label}</a>
         `).join("")}
       </nav>
     </div>`;
+}
 
+if (header) {
   const toggle = header.querySelector(".menu-toggle");
   const nav = header.querySelector(".primary-nav");
   toggle.addEventListener("click", () => {
@@ -52,17 +54,12 @@ if (header) {
   }));
 }
 
-document.querySelectorAll("[data-version-link]").forEach((link) => {
-  const base = link.getAttribute("href").split("?")[0];
-  link.setAttribute("href", withVersion(base));
-});
-
 const footer = document.querySelector("#site-footer");
 if (footer) {
   footer.innerHTML = `
     <div class="footer-inner">
       <div>
-        <a class="footer-brand" href="${withVersion("index.html")}">mHealth Security</a>
+        <a class="footer-brand" href="index.html">mHealth Security</a>
         <p>Research in wireless systems, physical-layer security, and connected health.</p>
       </div>
       <div class="footer-meta">
