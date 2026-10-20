@@ -294,7 +294,6 @@ p:last-child { margin-bottom: 0; }
   height: 100%;
   padding: 14px 16px;
   border: 1px solid var(--rule);
-  border-top: 2px solid var(--navy);
   background: var(--white);
 }
 .card p { color: var(--muted); font-size: 15.5px; }
@@ -496,10 +495,18 @@ p:last-child { margin-bottom: 0; }
 .event-copy .eyebrow { color: var(--gold); }
 .event-panel {
   border: 1px solid var(--rule);
-  border-top: 2px solid var(--navy);
   background: var(--soft);
   padding: 4px 16px;
 }
+.event-logo {
+  display: flex;
+  justify-content: center;
+  padding: 14px 0 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.event-logo img { width: 150px; height: auto; }
+.event-logo.dark { margin: -4px -16px 0; padding: 18px 16px; background: var(--navy); border-bottom: 0; }
+.event-logo.dark img { width: 220px; }
 .event-detail { padding: 9px 0; border-bottom: 1px solid var(--rule); }
 .event-detail:last-child { border-bottom: 0; }
 .event-detail small { display: block; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
